@@ -1,0 +1,33 @@
+{
+  "trial": "study02_s23_llama1b_kv3072_cap12-10_generation_burst_adaptive",
+  "policy": "adaptive",
+  "n": 12,
+  "start_perf_s": 7493.566849956,
+  "end_perf_s": 7514.757265711,
+  "wall_s": 21.190415755000686,
+  "throughput": 205.375866633149,
+  "ttft_p50": 0.06621861150006225,
+  "ttft_p95": 10.521654137399537,
+  "e2e_p50": 5.962825355999939,
+  "e2e_p95": 15.547676231949747,
+  "max_silence": 2.6786120589995335,
+  "silence_p95": 1.6319948736497722,
+  "stalled_requests": 1,
+  "silence_excess_1s_s": 1.6786120589995335,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 3.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.00020265899929654274,
+  "model": "llama1b",
+  "slots": 3072,
+  "cap": 12,
+  "seed": 23,
+  "mix": "generation",
+  "arrival": "burst",
+  "run": "study02_s23_llama1b_kv3072_cap12",
+  "folder": "10_generation_burst_adaptive"
+}

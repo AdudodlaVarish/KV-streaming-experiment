@@ -1,0 +1,2 @@
+{"kind": "config", "t": 5870.773888737, "async_scheduling": true, "watermark": 0.0, "reserve_full_isl": true}
+{"kind": "control", "t": 5872.475512297, "trial": "diag200_s23_llama1b_kv3072_cap12-warm0", "policy": "baseline", "reserve": 0.0}

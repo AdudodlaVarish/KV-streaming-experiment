@@ -1,0 +1,10 @@
+{
+  "completed_utc": "2026-10-03T03:10:23.619309+00:00",
+  "original_runner_exit": 0,
+  "replacement_runner_exit": 0,
+  "retained_trials": 168,
+  "retained_requests": 2016,
+  "excluded_order_configuration_trials": 12,
+  "experiment_servers_stopped": true,
+  "gpu_final": "timestamp, memory.used [MiB], utilization.gpu [%], temperature.gpu\n2026/10/02 22:10:23.607, 596 MiB, 0 %, 45\n"
+}

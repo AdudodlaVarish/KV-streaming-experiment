@@ -1,0 +1,9 @@
+{
+  "completed_bursts": 15,
+  "completed_requests": 180,
+  "traced_bursts": 12,
+  "token_counts_verified": true,
+  "success_counters_verified": true,
+  "trace_preemptions_match_metrics": true,
+  "rescheduled_positions_match_evicted_positions": true
+}

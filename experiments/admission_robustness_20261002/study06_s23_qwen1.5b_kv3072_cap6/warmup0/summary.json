@@ -1,0 +1,25 @@
+{
+  "trial": "study06_s23_qwen1.5b_kv3072_cap6-warm0",
+  "policy": "baseline",
+  "n": 4,
+  "start_perf_s": 8335.268036069,
+  "end_perf_s": 8336.393419,
+  "wall_s": 1.125382931000786,
+  "throughput": 113.7390629216062,
+  "ttft_p50": 0.43401605450071656,
+  "ttft_p95": 0.5016827075494803,
+  "e2e_p50": 1.0502173939994464,
+  "e2e_p95": 1.0991019168507592,
+  "max_silence": 0.15934300400112988,
+  "silence_p95": 0.13895548565105856,
+  "stalled_requests": 0,
+  "silence_excess_1s_s": 0,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 0.0,
+    "vllm:prompt_tokens_total": 2048.0,
+    "vllm:generation_tokens_total": 128.0,
+    "vllm:iteration_tokens_total_sum": 2176.0,
+    "vllm:request_success_total": 4.0
+  },
+  "max_arrival_lateness_s": 0.00022490400006063005
+}

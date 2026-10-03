@@ -1,0 +1,88 @@
+Locked hashes: {'run.py': '675c3c7fe6299286b215b1bd35685a0fb9e8a493a020aa25fe514407f3805b16', 'control_scheduler.py': 'f072e647ff748d8af371ad3231f1eb53980ef65903aecf0e55b02f11c252a2e9'}
+Actual hashes: {'run.py': '675c3c7fe6299286b215b1bd35685a0fb9e8a493a020aa25fe514407f3805b16', 'control_scheduler.py': 'f072e647ff748d8af371ad3231f1eb53980ef65903aecf0e55b02f11c252a2e9'}
+{
+  "completed": 168,
+  "thresholds": {
+    "0.5": {
+      "fixed": {
+        "pairs": 16,
+        "baseline_stalled": 38,
+        "policy_stalled": 11,
+        "improved_pairs": 13,
+        "worsened_pairs": 0
+      },
+      "adaptive": {
+        "pairs": 16,
+        "baseline_stalled": 38,
+        "policy_stalled": 26,
+        "improved_pairs": 6,
+        "worsened_pairs": 0
+      }
+    },
+    "1": {
+      "fixed": {
+        "pairs": 16,
+        "baseline_stalled": 29,
+        "policy_stalled": 9,
+        "improved_pairs": 11,
+        "worsened_pairs": 0
+      },
+      "adaptive": {
+        "pairs": 16,
+        "baseline_stalled": 29,
+        "policy_stalled": 21,
+        "improved_pairs": 5,
+        "worsened_pairs": 0
+      }
+    },
+    "2": {
+      "fixed": {
+        "pairs": 16,
+        "baseline_stalled": 22,
+        "policy_stalled": 8,
+        "improved_pairs": 10,
+        "worsened_pairs": 0
+      },
+      "adaptive": {
+        "pairs": 16,
+        "baseline_stalled": 22,
+        "policy_stalled": 17,
+        "improved_pairs": 3,
+        "worsened_pairs": 0
+      }
+    },
+    "5": {
+      "fixed": {
+        "pairs": 16,
+        "baseline_stalled": 8,
+        "policy_stalled": 4,
+        "improved_pairs": 2,
+        "worsened_pairs": 0
+      },
+      "adaptive": {
+        "pairs": 16,
+        "baseline_stalled": 8,
+        "policy_stalled": 7,
+        "improved_pairs": 1,
+        "worsened_pairs": 2
+      }
+    }
+  },
+  "gpu_snapshot_ranges": {
+    "temperature_c": {
+      "min": 58.0,
+      "max": 68.0,
+      "median": 65.0
+    },
+    "power_w": {
+      "min": 42.2,
+      "max": 55.13,
+      "median": 53.14
+    },
+    "sm_clock_mhz": {
+      "min": 1875.0,
+      "max": 2580.0,
+      "median": 2145.0
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "seeds": [
+    23,
+    77
+  ],
+  "requests_per_trace": 12,
+  "prompt_balanced": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "output_balanced": [
+    64,
+    128,
+    256,
+    512
+  ],
+  "prompt_generation": [
+    128,
+    256,
+    512
+  ],
+  "output_generation": [
+    64,
+    256,
+    768
+  ],
+  "burst_interval_s": 0.05,
+  "stagger_min_s": 0.05,
+  "stagger_exponential_mean_s": 0.95,
+  "policies": [
+    "baseline",
+    "fixed .30",
+    "feedback .05/+ .08 per eviction/- .02 per 128 calm steps/max .45"
+  ],
+  "jobs": [
+    [
+      23,
+      [
+        "qwen1.5b",
+        12288,
+        12
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        5120,
+        6
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        3072,
+        12
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        5120,
+        3
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        12288,
+        12
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        3072,
+        3
+      ]
+    ],
+    [
+      23,
+      [
+        "qwen1.5b",
+        3072,
+        6
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        5120,
+        12
+      ]
+    ],
+    [
+      77,
+      [
+        "qwen1.5b",
+        3072,
+        6
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        5120,
+        6
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        3072,
+        3
+      ]
+    ],
+    [
+      77,
+      [
+        "qwen1.5b",
+        12288,
+        12
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        12288,
+        12
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        3072,
+        12
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        5120,
+        3
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        5120,
+        12
+      ]
+    ]
+  ],
+  "diagnostic": false,
+  "model_paths": {
+    "llama1b": "/home/varish/.cache/huggingface/hub/models--meta-llama--Llama-3.2-1B-Instruct/snapshots/9213176726f574b556790deb65791e0c5aa438b6",
+    "qwen1.5b": "/home/varish/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  }
+}

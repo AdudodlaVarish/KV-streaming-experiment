@@ -1,0 +1,8 @@
+{
+  "model": "llama1b",
+  "slots": 5120,
+  "cap": 6,
+  "seed": 77,
+  "bytes_per_token": 32768,
+  "cache_bytes": 167772160
+}

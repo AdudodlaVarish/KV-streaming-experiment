@@ -1,0 +1,33 @@
+{
+  "trial": "study08_s77_qwen1.5b_kv3072_cap6-02_generation_burst_baseline",
+  "policy": "baseline",
+  "n": 12,
+  "start_perf_s": 8790.327044586,
+  "end_perf_s": 8810.907220335,
+  "wall_s": 20.580175749000773,
+  "throughput": 211.46563824710302,
+  "ttft_p50": 0.6668198024999583,
+  "ttft_p95": 14.549409124700196,
+  "e2e_p50": 15.16144331400028,
+  "e2e_p95": 19.657454463900283,
+  "max_silence": 8.167685267000707,
+  "silence_p95": 6.271095057750424,
+  "stalled_requests": 3,
+  "silence_excess_1s_s": 10.974650866000957,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 5.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.00017105799961425472,
+  "model": "qwen1.5b",
+  "slots": 3072,
+  "cap": 6,
+  "seed": 77,
+  "mix": "generation",
+  "arrival": "burst",
+  "run": "study08_s77_qwen1.5b_kv3072_cap6",
+  "folder": "02_generation_burst_baseline"
+}

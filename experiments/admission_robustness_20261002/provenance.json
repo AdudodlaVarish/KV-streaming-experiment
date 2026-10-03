@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-02 local Chicago start",
+  "hardware": "NVIDIA RTX 4060 Laptop GPU, 8188 MiB, 55 W",
+  "software": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0+cu132",
+    "flashinfer": "0.6.18.post1"
+  },
+  "models": {
+    "llama1b": "/home/varish/.cache/huggingface/hub/models--meta-llama--Llama-3.2-1B-Instruct/snapshots/9213176726f574b556790deb65791e0c5aa438b6",
+    "qwen1.5b": "/home/varish/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  },
+  "weights_and_kv_dtype": "BF16",
+  "bytes_per_kv_token": {
+    "llama1b": 32768,
+    "qwen15b": 28672
+  },
+  "evaluation_hashes": {
+    "run.py": "675c3c7fe6299286b215b1bd35685a0fb9e8a493a020aa25fe514407f3805b16",
+    "control_scheduler.py": "f072e647ff748d8af371ad3231f1eb53980ef65903aecf0e55b02f11c252a2e9"
+  },
+  "gpu_snapshot_ranges": {
+    "temperature_c": {
+      "min": 58.0,
+      "max": 68.0,
+      "median": 65.0
+    },
+    "power_w": {
+      "min": 42.2,
+      "max": 55.13,
+      "median": 53.14
+    },
+    "sm_clock_mhz": {
+      "min": 1875.0,
+      "max": 2580.0,
+      "median": 2145.0
+    }
+  },
+  "checks": {
+    "completed_trials": 168,
+    "completed_requests": 2016,
+    "paired_comparisons": 112,
+    "token_counts_verified": true,
+    "preemption_trace_matches_metrics": true,
+    "replayed_positions_match_evicted": true,
+    "policy_state_verified": true,
+    "diagnostics_excluded": true,
+    "early_simultaneous_batches_excluded": true,
+    "engine_arrival_order_verified": true,
+    "unfinished_cells": []
+  },
+  "order_replacement": {
+    "reason": "Engine arrival order differed from prospective request-index order. Entire configuration replaced without outcome selection.",
+    "frozen_hashes": {
+      "run.py": "675c3c7fe6299286b215b1bd35685a0fb9e8a493a020aa25fe514407f3805b16",
+      "control_scheduler.py": "f072e647ff748d8af371ad3231f1eb53980ef65903aecf0e55b02f11c252a2e9"
+    },
+    "failed_order": [
+      {
+        "run": "study13_s77_llama1b_kv3072_cap12",
+        "trial": "study13_s77_llama1b_kv3072_cap12-10_generation_stagger_adaptive",
+        "actual_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "engine_arrivals": [
+          [
+            0,
+            0.0024500869985786267
+          ],
+          [
+            1,
+            1.2700196409987257
+          ],
+          [
+            2,
+            3.177988336999988
+          ],
+          [
+            3,
+            3.5394975829985924
+          ],
+          [
+            4,
+            3.91528152599858
+          ],
+          [
+            6,
+            4.4889926519990695
+          ],
+          [
+            5,
+            4.489051468999605
+          ],
+          [
+            7,
+            4.579571020998628
+          ],
+          [
+            8,
+            5.0491013239989115
+          ],
+          [
+            9,
+            6.165775073999612
+          ],
+          [
+            10,
+            6.2619124359989655
+          ],
+          [
+            11,
+            6.724677893998887
+          ]
+        ],
+        "client_starts": [
+          [
+            0,
+            0.0,
+            0.00018873500084737316
+          ],
+          [
+            1,
+            1.2679998709991196,
+            8.607357817225214e-05
+          ],
+          [
+            2,
+            3.176021227000092,
+            0.00018607051650532114
+          ],
+          [
+            3,
+            3.535313430000315,
+            8.890966487351548e-05
+          ],
+          [
+            4,
+            3.9020392450001964,
+            8.482193436343266e-05
+          ],
+          [
+            5,
+            4.101212820998626,
+            0.00041154458084946555
+          ],
+          [
+            6,
+            4.484500523998577,
+            0.03502845068297855
+          ],
+          [
+            7,
+            4.57666807699934,
+            8.985234118785712e-05
+          ],
+          [
+            8,
+            5.044594770999538,
+            8.934094369905665e-05
+          ],
+          [
+            9,
+            6.161694597998576,
+            7.592661372335385e-05
+          ],
+          [
+            10,
+            6.254693591999967,
+            4.7046316336896155e-05
+          ],
+          [
+            11,
+            6.719606919999933,
+            7.898026275388048e-05
+          ]
+        ]
+      }
+    ],
+    "excluded_configurations": [
+      "excluded_order_study13_s77_llama1b_kv3072_cap12"
+    ],
+    "accepted_replacement": "study13r01_s77_llama1b_kv3072_cap12",
+    "retained_trials": 168,
+    "retained_requests": 2016,
+    "additional_configuration_attempts": 1
+  }
+}

@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py", line 222, in <module>
+    server_run(job,seed,run_id,args.diagnostic)
+  File "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py", line 161, in server_run
+    trial(warm,folder/f'warmup{w}',control_path,'baseline',f'{run_id}-warm{w}')
+  File "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py", line 96, in trial
+    r=f.result()
+      ^^^^^^^^^^
+  File "/home/varish/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/varish/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/varish/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py", line 56, in request
+    assert not data.get('error'),data
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'error': {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'InternalServerError', 'param': None, 'code': 500}}

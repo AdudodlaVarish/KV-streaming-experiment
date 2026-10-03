@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/bench.py", line 157, in <module>
+    run(tuple(map(int,config.split(':'))),prompts,args.output,args.reps,args.tag)
+  File "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/bench.py", line 109, in run
+    raise RuntimeError(f'Server exited: {folder}/server.log')
+RuntimeError: Server exited: /home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/pilot_kv128_cap3/server.log

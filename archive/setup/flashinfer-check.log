@@ -1,0 +1,4 @@
+PASS: FlashInfer GPU decode matches PyTorch attention
+GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+PyTorch: 2.13.0+cu132 CUDA: 13.2
+FlashInfer: 0.6.18.post1

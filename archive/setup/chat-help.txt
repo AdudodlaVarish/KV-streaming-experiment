@@ -1,0 +1,6 @@
+usage: vllm chat [options]
+
+Generate chat completions via the running API server.
+
+Config Groups:
+  options                 

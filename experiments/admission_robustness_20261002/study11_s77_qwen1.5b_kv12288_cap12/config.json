@@ -1,0 +1,8 @@
+{
+  "model": "qwen1.5b",
+  "slots": 12288,
+  "cap": 12,
+  "seed": 77,
+  "bytes_per_token": 28672,
+  "cache_bytes": 352321536
+}

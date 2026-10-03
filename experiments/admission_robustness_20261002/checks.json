@@ -1,0 +1,13 @@
+{
+  "completed_trials": 168,
+  "completed_requests": 2016,
+  "paired_comparisons": 112,
+  "token_counts_verified": true,
+  "preemption_trace_matches_metrics": true,
+  "replayed_positions_match_evicted": true,
+  "policy_state_verified": true,
+  "diagnostics_excluded": true,
+  "early_simultaneous_batches_excluded": true,
+  "engine_arrival_order_verified": true,
+  "unfinished_cells": []
+}

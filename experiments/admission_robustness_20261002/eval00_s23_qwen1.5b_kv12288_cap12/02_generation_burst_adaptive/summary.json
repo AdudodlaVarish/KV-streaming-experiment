@@ -1,0 +1,33 @@
+{
+  "trial": "eval00_s23_qwen1.5b_kv12288_cap12-02_generation_burst_adaptive",
+  "policy": "adaptive",
+  "n": 12,
+  "start_perf_s": 6262.636991012,
+  "end_perf_s": 6276.271259574,
+  "wall_s": 13.634268562000216,
+  "throughput": 319.1957075078723,
+  "ttft_p50": 0.41001856750017396,
+  "ttft_p95": 0.508487443849799,
+  "e2e_p50": 4.935106258500127,
+  "e2e_p95": 13.633920592399999,
+  "max_silence": 0.2582804229996327,
+  "silence_p95": 0.2232776205496975,
+  "stalled_requests": 0,
+  "silence_excess_1s_s": 0,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 0.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.0025472849993093405,
+  "model": "qwen1.5b",
+  "slots": 12288,
+  "cap": 12,
+  "seed": 23,
+  "mix": "generation",
+  "arrival": "burst",
+  "run": "eval00_s23_qwen1.5b_kv12288_cap12",
+  "folder": "02_generation_burst_adaptive"
+}
