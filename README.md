@@ -1,14 +1,18 @@
 # KV-cache pressure and streaming service
 
-A focused empirical project asking whether already-started responses can keep receiving service when physical KV capacity is tight. Native vLLM experiments on an 8GB RTX 4060 Laptop GPU; `dash.py` remains the live aggregate dashboard.
+This project asks a fairly simple question: **when physical KV-cache capacity gets tight, can responses that have already started keep receiving service?**
 
-The exploratory project is complete. The [technical writeup](TECHNICAL_WRITEUP.md) brings together the context, relevant work, experiments, findings, and future research goals.
+The experiments run directly on vLLM using an 8GB RTX 4060 Laptop GPU. `dash.py` remains the live aggregate dashboard.
+
+The exploratory phase of the project is now complete. The [technical writeup](TECHNICAL_WRITEUP.md) brings together the motivation, related work, experiments, findings, limitations, and possible directions for future research.
 
 ## Latest findings
 
-**96 new trials / 1,152 completed requests** compare proactive growth admission, deadline service, the prior resume waiver, and a same-engine SLAI core-policy port. Two models, two main workload/order seeds, mixed lengths, clustered/staggered arrivals, larger-cache and lower-concurrency controls, plus a held-out long-output seed.
+The latest study adds **96 trials and 1,152 completed requests**. It compares proactive growth admission, deadline-based service, the earlier resume waiver, and a same-engine port of SLAI's core scheduling policy.
 
-The **12 prespecified pressure workloads /144 requests per policy** show:
+The test matrix covers two models, two main workload/order seeds, mixed output lengths, clustered and staggered arrivals, larger-cache and lower-concurrency controls, and a held-out long-output seed.
+
+Across the **12 prespecified pressure workloads, with 144 requests per policy**, the results are:
 
 | Policy | Throughput / default | Streams with >1 s gap | Worst gap (s) | Evictions |
 |---|---:|---:|---:|---:|
@@ -19,15 +23,21 @@ The **12 prespecified pressure workloads /144 requests per policy** show:
 | Service + growth128 | 90.0% | 0 | 0.566 | 183 |
 | Service + growth256 | 91.0% | 0 | 0.563 | 113 |
 
-Throughput retention is the geometric mean of matched ratios. Gaps measure actual client token-ID delivery **after the first delivery**. Main group selection uses configuration, not default eviction outcomes.
+Throughput retention is reported as the geometric mean of matched throughput ratios. Streaming gaps measure actual client token-ID delivery **after the first token has already been delivered**. The main workload groups are selected from configuration rather than from the eviction behavior of the default policy.
 
-- **Proactive protection helps on the tested main workloads.** Reserve rolling room for active streams to grow, and pause fresh admission while a started stream is waiting. Adding early deadline service changes stalled streams 11 → 0 but also changes replay 12,191 → 148,942 positions.
-- **Smoothness has admission and replay costs.** Median first-token latency for service128/256 is 1.50x / 3.76x default. Their 0.5 s client target misses are 4/144 and 4/144. Only 33.6%–60.4% /41.7%–53.0% of incremental batching gain over cap 3 remains in the three qualifying controls; retaining most total throughput does not meet the stronger batching-benefit objective.
-- **The long tail exposes the limit.** On held-out outputs up to 1,536 tokens, the strict 0.25 s version retains 22.3% throughput, causes 2,501 evictions and 3,293,548 replayed positions, and still reaches a 0.714 s gap. No tested policy establishes a hard service bound.
+- **Proactive protection helps on the main workloads tested here.** Reserving room for active streams to keep growing, while pausing new admission when a started stream is waiting, substantially reduces long stalls. Adding early deadline-based service takes the number of streams with gaps over one second from 11 to 0, but it also raises replay from 12,191 to 148,942 positions.
 
-The earlier resumption study found about 88% of adaptive resumption waiting followed physical-capacity refusals. A reserve waiver helped partly but could not create cache. The broader workload study found the batching/smoothness tradeoff in 7/8 tight-cache comparisons. This study tests proactive admission and service directly; the growth-only ablation and long-tail failure keep the attribution honest.
+- **That smoother service comes with real admission and replay costs.** Median first-token latency for service128 and service256 rises to 1.50× and 3.76× the default, respectively. Both policies miss the 0.5 s client target on 4 of 144 requests. In the three qualifying controls, they preserve only 33.6%–60.4% and 41.7%–53.0% of the incremental batching gain over a concurrency cap of 3. So while most total throughput is retained, the stronger goal of preserving most of the batching benefit is not met.
 
-TBT scheduling and proactive KV reservation already have close prior art. SLAI is a core-policy port in our pinned engine, **not the original system or a reproduction of its published performance**. One GPU, synthetic forced outputs, short contexts and few seeds limit generalization.
+- **The held-out long-output workload shows where the approach breaks down.** With outputs up to 1,536 tokens, the strict 0.25 s service version retains only 22.3% of default throughput, triggers 2,501 evictions, and replays 3,293,548 positions. Even then, the worst streaming gap reaches 0.714 s. None of the policies tested here establishes a hard service bound.
+
+The earlier resumption study found that about 88% of adaptive resumption waits followed physical-capacity refusals. A reserve waiver helped, but only partially: it could change admission behavior, not create more cache.
+
+The broader workload study also found the batching-versus-smoothness tradeoff in 7 of 8 tight-cache comparisons. The latest study tests proactive admission and service more directly. The growth-only ablation helps separate the effects of reservation from deadline service, while the long-tail failure makes clear that the approach has limits.
+
+There is also important prior work here. TBT-oriented scheduling and proactive KV reservation are not new ideas. The SLAI result in this repository is a port of its core policy into the pinned engine used for these experiments; it is **not the original SLAI system and should not be interpreted as a reproduction of its published performance**.
+
+These results are also deliberately narrow. They come from one GPU, synthetic forced outputs, short contexts, and a small number of seeds, so they should not be generalized beyond the tested setting without further validation.
 
 ## Reports and data
 
@@ -36,7 +46,9 @@ TBT scheduling and proactive KV reservation already have close prior art. SLAI i
 - [Broader workloads](experiments/admission_robustness_20261002/REPORT.md)
 - [Initial capacity cliff](experiments/capacity_cliff_20261002/REPORT.md)
 
-Keep the four study directories together; later studies reuse earlier helpers. `experiments/` holds frozen designs, code, client records, native traces, audits and figures. `archive/setup/` preserves setup history. `activate.sh`, `requirements.lock.txt`, `.venv/` and `cuda-libs/` retain the runtime.
+Keep the four study directories together, since later studies reuse helpers from the earlier ones.
+
+`experiments/` contains the frozen study designs, code, client records, native traces, audits, and figures. `archive/setup/` preserves the setup history. `activate.sh`, `requirements.lock.txt`, `.venv/`, and `cuda-libs/` preserve the runtime environment.
 
 ## Run
 
@@ -46,12 +58,17 @@ source activate.sh
 python dash.py
 ```
 
-The dashboard reads local port8017 metrics while an experiment server runs; benchmarks stop their servers afterward. Streaming gaps/replay require client records and traces beyond dashboard aggregates. To repeat the latest matrix:
+The dashboard reads metrics from local port 8017 while an experiment server is running. Benchmark scripts shut their servers down when they finish.
+
+Streaming-gap and replay analysis requires the client records and native traces; those details are not recoverable from dashboard aggregates alone.
+
+To rerun the latest experiment matrix:
 
 ```bash
 python experiments/streaming_guard_20261003/run.py --prefix rerun
 python experiments/streaming_guard_20261003/analyze.py --prefix rerun
 ```
 
-Run folders are never overwritten; analysis updates derived exports. Preserve exports before rerunning. See the report for plotting, audit and bundle scope. Runtime: Python 3.12, vLLM 0.30.0, Torch 2.13.0+cu132, FlashInfer 0.6.18.post1.
+Run directories are never overwritten. Analysis may update derived exports, so preserve any exports you want to keep before rerunning. See the study report for details on plotting, audits, and bundle contents.
 
+Runtime: Python 3.12, vLLM 0.30.0, Torch 2.13.0+cu132, FlashInfer 0.6.18.post1.
