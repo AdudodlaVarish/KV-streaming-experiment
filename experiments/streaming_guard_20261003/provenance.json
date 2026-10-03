@@ -1,0 +1,79 @@
+{
+  "recorded_utc": "2026-10-03T17:36:12.890033+00:00",
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-09
+  },
+  "versions": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0+cu132",
+    "flashinfer-python": "0.6.18.post1",
+    "transformers": "5.17.0"
+  },
+  "source_hashes": {
+    "/home/varish/kv-cache-lab/requirements.lock.txt": "846c8347fa1ea7b5631a4016121508857d6c77b344554fb349d862307b451beb",
+    "/home/varish/kv-cache-lab/activate.sh": "861ea0664e090e1592f163599cc662f3ee89c45b844012e6bc792d3af3668bb5",
+    "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/bench.py": "5164150d9b7de3ce4fa96cffef860e4b8df31eaf68af1e8ce208df861ee281f3",
+    "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/analyze.py": "9f79c8c03515f9fb29ff1293769c77803b21c11b4c173988c6a734b2ffc032fe",
+    "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/trace_scheduler.py": "9c35e8df1df8f58c134293b495d419d77e4e41b04d8ac6b5571657203045e715",
+    "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py": "1743ffd7d693ab9d7170666aa5cbc58cb9fde0d6c5fad7598424af1ccbde1352",
+    "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/control_scheduler.py": "8dc76381b5194391ba0cf9ed46085c5b6e2a118668db49020964cac42cea9856",
+    "/home/varish/kv-cache-lab/experiments/resume_admission_20261003/resume_scheduler.py": "da173b7b91a5a46176c85a13dc96a78e71a44709ec9332d5d678ffd53e91afa6",
+    "/home/varish/kv-cache-lab/experiments/resume_admission_20261003/analyze.py": "5da5c1a9d0ffcc7e36557e89ea51a6198889896ce40b064f187a4cd1387861ad",
+    "/home/varish/kv-cache-lab/.venv/lib/python3.12/site-packages/vllm/v1/core/sched/scheduler.py": "c1db45f3bbad3a875dd8638331b8870c4380ac1ab4734265ba5c863833a82884",
+    "/home/varish/kv-cache-lab/.venv/lib/python3.12/site-packages/vllm/v1/core/sched/async_scheduler.py": "e586a0ef3c6778be56a93e7f9bb712d4de9de6e7d7fe7e3e1d51dae83ecfc508",
+    "/home/varish/kv-cache-lab/.venv/lib/python3.12/site-packages/vllm/v1/core/sched/request_queue.py": "4b8d938e5fb8152fe61030b8aa991f983fcac9a405c37ed8908045e05e82ae5e",
+    "/home/varish/kv-cache-lab/.venv/lib/python3.12/site-packages/vllm/v1/core/kv_cache_manager.py": "58800535eda854580d84e1025bf32fe01b2a43ce0bba501b4f3d125e4f2c8afa",
+    "/home/varish/kv-cache-lab/.venv/lib/python3.12/site-packages/vllm/v1/metrics/loggers.py": "c12b4fbebfe886b697127f1114eaa0bb83c54a78675919d178b619c3d8d5d655",
+    "/home/varish/kv-cache-lab/.venv/lib/python3.12/site-packages/vllm/v1/metrics/stats.py": "af1983ddc32fa4d3284e72212c6525daf961dd84429023a02d612b68b3112cf3"
+  },
+  "gpu": "name, driver_version, memory.total [MiB], power.draw [W], temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz]\nNVIDIA GeForce RTX 4060 Laptop GPU, 616.92, 8188 MiB, 54.78 W, 68, 1950 MHz, 8001 MHz\n",
+  "slai_reference": {
+    "url": "https://github.com/agrimUT/SLAI",
+    "commit": "5098a7aba05e3edbcfa3a509d6cc9cd248fc4380",
+    "scheduler_sha256": "972361a25def480ca136cd90bced4b4b691a77749742cc374bb60f6cea99dbfc"
+  },
+  "cross_process_clock_bounds": [
+    {
+      "before": 7253.318645741,
+      "child": 7253.332270552,
+      "after": 7253.334513605
+    },
+    {
+      "before": 7253.334515924,
+      "child": 7253.348765143,
+      "after": 7253.350966082
+    },
+    {
+      "before": 7253.350968447,
+      "child": 7253.364704303,
+      "after": 7253.366935512
+    },
+    {
+      "before": 7253.366937637,
+      "child": 7253.379934439,
+      "after": 7253.382164354
+    },
+    {
+      "before": 7253.382166376,
+      "child": 7253.395706038,
+      "after": 7253.398279683
+    }
+  ],
+  "docstring_cleanup": {
+    "utc": "2026-10-03T19:45:10.776334+00:00",
+    "original_hashes": {
+      "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/bench.py": "6b78bd6f0608c6cdc310df7f8b1e5214590cd4198d1d6338dc4102b842335a5d",
+      "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/analyze.py": "041955669dc94e79df862178923f190f347f8018ee08f1fedc6287a642de1ad2",
+      "/home/varish/kv-cache-lab/experiments/capacity_cliff_20261002/trace_scheduler.py": "910b678ad6d20e62271e358dd6e6e7cda3acae82a8397f6cd50f698af0b0a403",
+      "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py": "675c3c7fe6299286b215b1bd35685a0fb9e8a493a020aa25fe514407f3805b16",
+      "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/control_scheduler.py": "f072e647ff748d8af371ad3231f1eb53980ef65903aecf0e55b02f11c252a2e9",
+      "/home/varish/kv-cache-lab/experiments/resume_admission_20261003/resume_scheduler.py": "7b8357429c689b5c4ba05b98b52914ef0f2b7f8fe5175e46daed44b5520b24df",
+      "/home/varish/kv-cache-lab/experiments/resume_admission_20261003/analyze.py": "5e84d0646af6422b103120474734a941ba65f3e9812932d0dadb4b35c7f842ff"
+    },
+    "note": "Working-copy source digests updated after docstring-only cleanup. Original evaluated source digests are preserved here and in the archived results bundles."
+  }
+}

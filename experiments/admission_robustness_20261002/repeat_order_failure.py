@@ -1,4 +1,3 @@
-"""Replace entire configuration only for failed arrival-order control, never performance."""
 import hashlib, json, pathlib, subprocess, sys
 import run
 ROOT=pathlib.Path(__file__).resolve().parent

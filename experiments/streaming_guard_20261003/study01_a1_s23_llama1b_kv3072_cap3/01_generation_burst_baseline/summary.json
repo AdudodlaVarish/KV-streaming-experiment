@@ -1,0 +1,33 @@
+{
+  "trial": "study01_a1_s23_llama1b_kv3072_cap3-01_generation_burst_baseline",
+  "policy": "baseline",
+  "n": 12,
+  "start_perf_s": 7937.957470757,
+  "end_perf_s": 7962.747509428,
+  "wall_s": 24.79003867099982,
+  "throughput": 175.55438528182324,
+  "ttft_p50": 10.885445673499817,
+  "ttft_p95": 15.097675602349998,
+  "e2e_p50": 13.568507715000123,
+  "e2e_p95": 20.53133956759993,
+  "max_silence": 0.06490533599935588,
+  "silence_p95": 0.06482912469946314,
+  "stalled_requests": 0,
+  "silence_excess_1s_s": 0,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 0.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.00048801799948705593,
+  "model": "llama1b",
+  "slots": 3072,
+  "cap": 3,
+  "seed": 23,
+  "mix": "generation",
+  "arrival": "burst",
+  "run": "study01_a1_s23_llama1b_kv3072_cap3",
+  "folder": "01_generation_burst_baseline"
+}

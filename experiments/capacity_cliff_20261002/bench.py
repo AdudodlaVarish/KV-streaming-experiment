@@ -1,4 +1,3 @@
-"""Burst benchmark; stdlib HTTP, exact token-ID prompts, raw metrics and SSE timing."""
 import argparse, concurrent.futures as cf, hashlib, json, os, pathlib
 import signal, subprocess, threading, time, urllib.request
 

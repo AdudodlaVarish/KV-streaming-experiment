@@ -1,0 +1,33 @@
+{
+  "trial": "study06_a1_s77_qwen1.5b_kv3072_cap6-05_generation_burst_adaptive",
+  "policy": "adaptive",
+  "n": 12,
+  "start_perf_s": 4354.062575844,
+  "end_perf_s": 4374.753393082,
+  "wall_s": 20.69081723799991,
+  "throughput": 210.33485289345143,
+  "ttft_p50": 0.6976331079999909,
+  "ttft_p95": 16.03489909040013,
+  "e2e_p50": 15.926112192500113,
+  "e2e_p95": 20.277840601049775,
+  "max_silence": 9.23049045100015,
+  "silence_p95": 6.766093180499817,
+  "stalled_requests": 3,
+  "silence_excess_1s_s": 12.007707568999649,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 4.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.00017124399983003968,
+  "model": "qwen1.5b",
+  "slots": 3072,
+  "cap": 6,
+  "seed": 77,
+  "mix": "generation",
+  "arrival": "burst",
+  "run": "study06_a1_s77_qwen1.5b_kv3072_cap6",
+  "folder": "05_generation_burst_adaptive"
+}

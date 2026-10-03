@@ -1,4 +1,3 @@
-"""Generate the report only after all prospective evaluation trials pass checks."""
 import json, pathlib, statistics
 ROOT=pathlib.Path(__file__).resolve().parent
 checks=json.loads((ROOT/'checks.json').read_text())

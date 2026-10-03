@@ -1,4 +1,3 @@
-"""Plot verified data using matplotlib from an existing analysis environment."""
 import json, pathlib, statistics
 import matplotlib
 matplotlib.use('Agg')

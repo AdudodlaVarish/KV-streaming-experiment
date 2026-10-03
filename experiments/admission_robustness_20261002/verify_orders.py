@@ -1,4 +1,3 @@
-"""Find order violations without weakening the main analysis checks."""
 import json, pathlib
 ROOT=pathlib.Path(__file__).resolve().parent
 failures=[]; checked=0

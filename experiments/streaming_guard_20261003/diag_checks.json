@@ -1,0 +1,16 @@
+{
+  "completed_trials": 8,
+  "completed_requests": 96,
+  "completed_configs": 1,
+  "token_usage_and_engine_service_verified": true,
+  "arrival_order_verified": true,
+  "preemptions_match_metrics": true,
+  "replay_plus_terminal_discard_equals_lost": true,
+  "growth_admission_invariants": true,
+  "handoff_urgency_invariants": true,
+  "native_capacity_checks": true,
+  "extended_prefill_metric_excludes_replay": true,
+  "frozen_code_verified": true,
+  "unfinished": [],
+  "diagnostics_excluded": false
+}

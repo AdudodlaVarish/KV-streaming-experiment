@@ -1,50 +1,44 @@
-# KV-cache admission and streaming pauses
+# KV-cache pressure and streaming service
 
-Investigating the throughput-versus-streaming-smoothness tradeoff under KV-cache pressure, and whether adaptive admission can reduce pauses while keeping batching gains.
+A focused empirical project asking whether already-started responses can keep receiving service when physical KV capacity is tight. Native vLLM experiments on an 8GB RTX 4060 Laptop GPU; `dash.py` remains the live aggregate dashboard.
 
-## Findings so far
+The exploratory project is complete. The [technical writeup](TECHNICAL_WRITEUP.md) brings together the context, relevant work, experiments, findings, and future research goals.
 
-**168 retained trials / 2,016 requests** across Llama 3.2 1B and Qwen 2.5 1.5B, mixed prompt/output lengths, bursty/staggered arrivals, several cache sizes and concurrency caps, and two randomized seeds/orders. This is a sampled configuration matrix, not a full factorial.
+## Latest findings
 
-- **The tradeoff recurs near the cache limit.** With 3,072 KV token slots, raising Llama's cap from 3 to 12 increased throughput >3% and produced more stalled streams in **7 of 8** comparisons. Neither higher-cap comparison at 5,120 slots showed that tradeoff; the largest-cache baseline controls stayed smooth.
-- **Adaptive admission helps, but does not bound pauses.** Burst stalls fell from 17 to 9; staggered stalls remained at 12. The worst pause increased from 9.54 to 10.17 seconds despite less replay.
+**96 new trials / 1,152 completed requests** compare proactive growth admission, deadline service, the prior resume waiver, and a same-engine SLAI core-policy port. Two models, two main workload/order seeds, mixed lengths, clustered/staggered arrivals, larger-cache and lower-concurrency controls, plus a held-out long-output seed.
 
-For the **16 cases where baseline admission caused evictions** (192 requests per policy):
+The **12 prespecified pressure workloads /144 requests per policy** show:
 
-| Policy | Throughput retained | Streams with >1 s pauses | Evictions | Replayed token positions |
+| Policy | Throughput / default | Streams with >1 s gap | Worst gap (s) | Evictions |
 |---|---:|---:|---:|---:|
-| Baseline | 100% | 29 | 62 | 31,417 |
-| Adaptive headroom | 99.4% | 21 | 36 | 19,834 |
-| Fixed 30% headroom | 90.9% | 9 | 12 | 8,399 |
+| Default | 100.0% | 27 | 10.416 | 58 |
+| Adaptive + resume waiver | 98.2% | 17 | 9.597 | 35 |
+| SLAI core port | 102.7% | 22 | 4.752 | 58 |
+| Growth only (128) | 98.8% | 11 | 7.909 | 18 |
+| Service + growth128 | 90.0% | 0 | 0.566 | 183 |
+| Service + growth256 | 91.0% | 0 | 0.563 | 113 |
 
-Throughput retention is the geometric mean of paired ratios. Pauses are gaps between token deliveries after the first token. Fixed headroom reduced stalls further but also roughly doubled first-token delay under pressure.
+Throughput retention is the geometric mean of matched ratios. Gaps measure actual client token-ID delivery **after the first delivery**. Main group selection uses configuration, not default eviction outcomes.
 
-The initial homogeneous experiment found the same local behavior: raising concurrency increased throughput 3.9% while the longest streaming pause grew from 0.166 to 5.195 seconds. Headroom or a larger cache removed those pauses in that workload. That study measured text chunks; the broader study uses token IDs.
+- **Proactive protection helps on the tested main workloads.** Reserve rolling room for active streams to grow, and pause fresh admission while a started stream is waiting. Adding early deadline service changes stalled streams 11 → 0 but also changes replay 12,191 → 148,942 positions.
+- **Smoothness has admission and replay costs.** Median first-token latency for service128/256 is 1.50x / 3.76x default. Their 0.5 s client target misses are 4/144 and 4/144. Only 33.6%–60.4% /41.7%–53.0% of incremental batching gain over cap 3 remains in the three qualifying controls; retaining most total throughput does not meet the stronger batching-benefit objective.
+- **The long tail exposes the limit.** On held-out outputs up to 1,536 tokens, the strict 0.25 s version retains 22.3% throughput, causes 2,501 evictions and 3,293,548 replayed positions, and still reaches a 0.714 s gap. No tested policy establishes a hard service bound.
 
-Standard token counters hide replay work in this vLLM version; scheduler traces expose it. All retained counts and arrival orders passed verification. One configuration was repeated after an arrival-order violation, with the excluded run preserved.
+The earlier resumption study found about 88% of adaptive resumption waiting followed physical-capacity refusals. A reserve waiver helped partly but could not create cache. The broader workload study found the batching/smoothness tradeoff in 7/8 tight-cache comparisons. This study tests proactive admission and service directly; the growth-only ablation and long-tail failure keep the attribution honest.
 
-**Limits:** one 8 GB laptop GPU, synthetic fixed output lengths, eager execution, and two seeds. These findings establish a conditional phenomenon, not a production pause guarantee. The next policy question is how to protect resuming streams while retaining batching gains.
+TBT scheduling and proactive KV reservation already have close prior art. SLAI is a core-policy port in our pinned engine, **not the original system or a reproduction of its published performance**. One GPU, synthetic forced outputs, short contexts and few seeds limit generalization.
 
-## Reports and layout
+## Reports and data
 
-- [Broader study](experiments/admission_robustness_20261002/REPORT.md) · [Figures and raw data](experiments/admission_robustness_20261002/results.zip) · [Verification](experiments/admission_robustness_20261002/checks.json)
-- [Initial capacity-cliff study](experiments/capacity_cliff_20261002/REPORT.md)
+- [Streaming-service study](experiments/streaming_guard_20261003/REPORT.md) · [Related work](experiments/streaming_guard_20261003/RELATED_WORK.md) · [Figure](experiments/streaming_guard_20261003/streaming_results.png) · [Data/code bundle](experiments/streaming_guard_20261003/results.zip)
+- [Resumption mechanism](experiments/resume_admission_20261003/REPORT.md)
+- [Broader workloads](experiments/admission_robustness_20261002/REPORT.md)
+- [Initial capacity cliff](experiments/capacity_cliff_20261002/REPORT.md)
 
-```text
-README.md                 Project findings and usage
-dash.py                  Live aggregate metrics
-activate.sh              GPU environment activation
-requirements.lock.txt    Pinned dependencies
-experiments/             Benchmarks, traces, results, figures, provenance
-archive/setup/           Original setup README, smoke checks, help, logs
-.venv/ and cuda-libs/     Existing working runtime
-```
-
-Keep the two experiment directories together: the broader study imports helpers from the initial study.
+Keep the four study directories together; later studies reuse earlier helpers. `experiments/` holds frozen designs, code, client records, native traces, audits and figures. `archive/setup/` preserves setup history. `activate.sh`, `requirements.lock.txt`, `.venv/` and `cuda-libs/` retain the runtime.
 
 ## Run
-
-In WSL Ubuntu:
 
 ```bash
 cd ~/kv-cache-lab
@@ -52,21 +46,12 @@ source activate.sh
 python dash.py
 ```
 
-The dashboard reads `http://127.0.0.1:8017/metrics` while an experiment server is running. Benchmarks stop their servers on completion. For another server, set `VLLM_METRICS_URL`; for example:
+The dashboard reads local port8017 metrics while an experiment server runs; benchmarks stop their servers afterward. Streaming gaps/replay require client records and traces beyond dashboard aggregates. To repeat the latest matrix:
 
 ```bash
-VLLM_METRICS_URL=http://127.0.0.1:8000/metrics python dash.py
+python experiments/streaming_guard_20261003/run.py --prefix rerun
+python experiments/streaming_guard_20261003/analyze.py --prefix rerun
 ```
 
-Streaming pauses and replay require the saved client records and scheduler traces, beyond the dashboard's aggregate metrics.
+Run folders are never overwritten; analysis updates derived exports. Preserve exports before rerunning. See the report for plotting, audit and bundle scope. Runtime: Python 3.12, vLLM 0.30.0, Torch 2.13.0+cu132, FlashInfer 0.6.18.post1.
 
-Repeat the broader study with a fresh prefix:
-
-```bash
-python experiments/admission_robustness_20261002/run.py --prefix rerun
-python experiments/admission_robustness_20261002/analyze_study.py --prefix rerun
-```
-
-Run folders are never overwritten; analysis updates derived JSON/CSV files. Copy the study directory first to preserve current exports. Full reports document figure generation and measurement details.
-
-Runtime: RTX 4060 Laptop, Python 3.12, vLLM 0.30.0, Torch 2.13.0+cu132, FlashInfer 0.6.18.post1. Use `activate.sh` to select the required CUDA libraries/compiler and preserve the pinned environment.

@@ -1,4 +1,3 @@
-"""Verify saved requests/counters and summarize logging-only scheduler traces."""
 import csv, json, pathlib, statistics
 ROOT = pathlib.Path(__file__).resolve().parent
 

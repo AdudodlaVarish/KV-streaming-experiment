@@ -1,0 +1,14 @@
+{
+  "completed_trials": 168,
+  "completed_requests": 2016,
+  "token_counts_verified": true,
+  "arrival_order_verified": true,
+  "preemptions_match_metrics": true,
+  "replay_matches_lost_positions": true,
+  "policy_and_admission_checks": true,
+  "extended_prefill_metric_excludes_replay": true,
+  "source_hashes_verified": true,
+  "unfinished_cells": [],
+  "diagnostics_excluded": true,
+  "previous_source": true
+}

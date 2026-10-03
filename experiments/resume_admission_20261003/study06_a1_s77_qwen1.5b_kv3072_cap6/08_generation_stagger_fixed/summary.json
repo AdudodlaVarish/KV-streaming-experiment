@@ -1,0 +1,33 @@
+{
+  "trial": "study06_a1_s77_qwen1.5b_kv3072_cap6-08_generation_stagger_fixed",
+  "policy": "fixed",
+  "n": 12,
+  "start_perf_s": 4414.995053397,
+  "end_perf_s": 4438.02209382,
+  "wall_s": 23.027040422999562,
+  "throughput": 188.99519521636802,
+  "ttft_p50": 0.09848929000008866,
+  "ttft_p95": 13.196353188650164,
+  "e2e_p50": 13.878422311000122,
+  "e2e_p95": 18.149854037650083,
+  "max_silence": 9.807185298999684,
+  "silence_p95": 6.991399210499544,
+  "stalled_requests": 2,
+  "silence_excess_1s_s": 12.494759527999122,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 3.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.0003665515155115706,
+  "model": "qwen1.5b",
+  "slots": 3072,
+  "cap": 6,
+  "seed": 77,
+  "mix": "generation",
+  "arrival": "stagger",
+  "run": "study06_a1_s77_qwen1.5b_kv3072_cap6",
+  "folder": "08_generation_stagger_fixed"
+}

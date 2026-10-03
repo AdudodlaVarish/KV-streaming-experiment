@@ -1,0 +1,25 @@
+{
+  "trial": "study07_a1_s77_llama1b_kv12288_cap12-warm0",
+  "policy": "baseline",
+  "n": 4,
+  "start_perf_s": 9357.721377536,
+  "end_perf_s": 9358.695169051,
+  "wall_s": 0.9737915149999026,
+  "throughput": 131.44497361944337,
+  "ttft_p50": 0.37425945950053574,
+  "ttft_p95": 0.4115039828002409,
+  "e2e_p50": 0.8944092170004296,
+  "e2e_p95": 0.9368578323508701,
+  "max_silence": 0.21245615299994824,
+  "silence_p95": 0.19025518039998135,
+  "stalled_requests": 0,
+  "silence_excess_1s_s": 0,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 0.0,
+    "vllm:prompt_tokens_total": 2816.0,
+    "vllm:generation_tokens_total": 128.0,
+    "vllm:iteration_tokens_total_sum": 2944.0,
+    "vllm:request_success_total": 4.0
+  },
+  "max_arrival_lateness_s": 0.00032071099849417806
+}

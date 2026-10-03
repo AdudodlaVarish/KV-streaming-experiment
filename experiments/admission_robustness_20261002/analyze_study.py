@@ -1,4 +1,3 @@
-"""Verify real traces; paired policy and batching comparisons. Diagnostics excluded."""
 import argparse, csv, json, math, pathlib, statistics, sys
 ROOT=pathlib.Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT.parent/'capacity_cliff_20261002'))

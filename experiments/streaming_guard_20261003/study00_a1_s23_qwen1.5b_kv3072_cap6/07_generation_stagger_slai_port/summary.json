@@ -1,0 +1,33 @@
+{
+  "trial": "study00_a1_s23_qwen1.5b_kv3072_cap6-07_generation_stagger_slai_port",
+  "policy": "slai_port",
+  "n": 12,
+  "start_perf_s": 7754.904167383,
+  "end_perf_s": 7781.106138919,
+  "wall_s": 26.2019715360002,
+  "throughput": 166.0943717162874,
+  "ttft_p50": 0.07711459199981618,
+  "ttft_p95": 2.839282128099601,
+  "e2e_p50": 4.70788913000024,
+  "e2e_p95": 15.66679921429968,
+  "max_silence": 1.5728735190004954,
+  "silence_p95": 1.5567996892504652,
+  "stalled_requests": 3,
+  "silence_excess_1s_s": 1.2236156630006008,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 4.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.00010916914198749739,
+  "model": "qwen1.5b",
+  "slots": 3072,
+  "cap": 6,
+  "seed": 23,
+  "mix": "generation",
+  "arrival": "stagger",
+  "run": "study00_a1_s23_qwen1.5b_kv3072_cap6",
+  "folder": "07_generation_stagger_slai_port"
+}

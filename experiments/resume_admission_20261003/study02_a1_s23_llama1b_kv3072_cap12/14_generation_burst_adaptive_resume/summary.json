@@ -1,0 +1,33 @@
+{
+  "trial": "study02_a1_s23_llama1b_kv3072_cap12-14_generation_burst_adaptive_resume",
+  "policy": "adaptive_resume",
+  "n": 12,
+  "start_perf_s": 3529.241154085,
+  "end_perf_s": 3550.820645973,
+  "wall_s": 21.57949188800012,
+  "throughput": 201.67295979846733,
+  "ttft_p50": 0.07060355900011928,
+  "ttft_p95": 10.710940576849907,
+  "e2e_p50": 5.345677976999923,
+  "e2e_p95": 15.835497686650086,
+  "max_silence": 1.454670076000184,
+  "silence_p95": 1.050176450749904,
+  "stalled_requests": 1,
+  "silence_excess_1s_s": 0.45467007600018405,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 3.0,
+    "vllm:prompt_tokens_total": 3584.0,
+    "vllm:generation_tokens_total": 4352.0,
+    "vllm:iteration_tokens_total_sum": 7936.0,
+    "vllm:request_success_total": 12.0
+  },
+  "max_arrival_lateness_s": 0.00018464100003257045,
+  "model": "llama1b",
+  "slots": 3072,
+  "cap": 12,
+  "seed": 23,
+  "mix": "generation",
+  "arrival": "burst",
+  "run": "study02_a1_s23_llama1b_kv3072_cap12",
+  "folder": "14_generation_burst_adaptive_resume"
+}

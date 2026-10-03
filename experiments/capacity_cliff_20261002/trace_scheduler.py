@@ -1,6 +1,3 @@
-"""Logging-only AsyncScheduler subclass for installed vLLM 0.30.0.
-Records scheduled work, not retired GPU instructions. No admission policy changes.
-"""
 import json, os, time
 from vllm.v1.core.sched.async_scheduler import AsyncScheduler
 

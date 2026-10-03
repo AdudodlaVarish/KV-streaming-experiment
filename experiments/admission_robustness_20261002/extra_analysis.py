@@ -1,4 +1,3 @@
-"""Secondary descriptive checks; no configuration selection or GPU re-runs."""
 import csv, hashlib, json, pathlib, statistics
 ROOT=pathlib.Path(__file__).resolve().parent
 rows=json.loads((ROOT/'analysis.json').read_text())

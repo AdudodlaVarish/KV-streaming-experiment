@@ -1,0 +1,78 @@
+{
+  "jobs": [
+    [
+      23,
+      [
+        "qwen1.5b",
+        3072,
+        6
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        3072,
+        3
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        3072,
+        12
+      ]
+    ],
+    [
+      23,
+      [
+        "llama1b",
+        12288,
+        12
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        3072,
+        3
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        3072,
+        12
+      ]
+    ],
+    [
+      77,
+      [
+        "qwen1.5b",
+        3072,
+        6
+      ]
+    ],
+    [
+      77,
+      [
+        "llama1b",
+        12288,
+        12
+      ]
+    ]
+  ],
+  "policies": [
+    "baseline",
+    "fixed",
+    "adaptive",
+    "fixed_resume",
+    "adaptive_resume"
+  ],
+  "expected_trials": 76,
+  "expected_requests": 912,
+  "prior_client": "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py"
+}

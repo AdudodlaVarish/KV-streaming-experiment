@@ -1,4 +1,3 @@
-"""Paired heterogeneous trace replay on a real GPU; policies swapped only between trials."""
 import argparse, concurrent.futures as cf, hashlib, json, os, pathlib, random
 import signal, subprocess, sys, threading, time, urllib.request
 ROOT=pathlib.Path(__file__).resolve().parent

@@ -1,0 +1,25 @@
+{
+  "trial": "study01_a1_s23_llama1b_kv3072_cap3-warm0",
+  "policy": "baseline",
+  "n": 3,
+  "start_perf_s": 7911.853352292,
+  "end_perf_s": 7912.857769141,
+  "wall_s": 1.0044168490003358,
+  "throughput": 95.57784708166311,
+  "ttft_p50": 0.42059464000067237,
+  "ttft_p95": 0.45260101149997356,
+  "e2e_p50": 0.9543709749996196,
+  "e2e_p95": 0.9805922896005541,
+  "max_silence": 0.06711279299997841,
+  "silence_p95": 0.06228526259992577,
+  "stalled_requests": 0,
+  "silence_excess_1s_s": 0,
+  "metrics_delta": {
+    "vllm:num_preemptions_total": 0.0,
+    "vllm:prompt_tokens_total": 1536.0,
+    "vllm:generation_tokens_total": 96.0,
+    "vllm:iteration_tokens_total_sum": 1632.0,
+    "vllm:request_success_total": 3.0
+  },
+  "max_arrival_lateness_s": 0.0003250779991503805
+}

@@ -16,8 +16,8 @@
     "qwen15b": 28672
   },
   "evaluation_hashes": {
-    "run.py": "675c3c7fe6299286b215b1bd35685a0fb9e8a493a020aa25fe514407f3805b16",
-    "control_scheduler.py": "f072e647ff748d8af371ad3231f1eb53980ef65903aecf0e55b02f11c252a2e9"
+    "run.py": "1743ffd7d693ab9d7170666aa5cbc58cb9fde0d6c5fad7598424af1ccbde1352",
+    "control_scheduler.py": "8dc76381b5194391ba0cf9ed46085c5b6e2a118668db49020964cac42cea9856"
   },
   "gpu_snapshot_ranges": {
     "temperature_c": {
@@ -194,5 +194,13 @@
     "retained_trials": 168,
     "retained_requests": 2016,
     "additional_configuration_attempts": 1
+  },
+  "docstring_cleanup": {
+    "utc": "2026-10-03T19:45:10.776334+00:00",
+    "original_hashes": {
+      "run.py": "675c3c7fe6299286b215b1bd35685a0fb9e8a493a020aa25fe514407f3805b16",
+      "control_scheduler.py": "f072e647ff748d8af371ad3231f1eb53980ef65903aecf0e55b02f11c252a2e9"
+    },
+    "note": "Working-copy source digests updated after docstring-only cleanup. Original evaluated source digests are preserved here and in the archived results bundles."
   }
 }

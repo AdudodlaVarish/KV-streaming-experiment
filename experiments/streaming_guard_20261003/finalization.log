@@ -1,0 +1,10 @@
+{
+  "verified": true,
+  "trials": 96,
+  "requests": 1152,
+  "configs": 9,
+  "excluded_order_configs": [],
+  "bundle_files": 1125,
+  "bundle_bytes": 27435604,
+  "bundle_sha256": "bd0a9a4dec93a9bc8f1596bc41765a5785b06b8e332e2b66cc11a86067d1e037"
+}

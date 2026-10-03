@@ -1,0 +1,19 @@
+# Prospective resume-admission experiment
+
+Question: Does treating fresh admission and post-eviction resumption differently improve client streaming continuity, and are eviction/replay counts sufficient proxies for that objective?
+
+Installed native vLLM already prepends preempted requests to its waiting queue. The intervention therefore changes the admission watermark only: native allocation, queue ordering, victim selection, asynchronous stale-output handling, full-input checks and physical capacity checks remain in force. No output-length predictor or future output oracle is used.
+
+Five policies: baseline watermark zero; fixed watermark .30; adaptive .05 start / +.08 per eviction / -.02 after 128 calm nonempty steps / maximum .45 (unchanged prior controller); fixed_resume and adaptive_resume waive the watermark for PREEMPTED requests, while retaining their corresponding watermark for fresh WAITING requests. All preempted requests are eligible, including those evicted before client first-token delivery. Analysis classifies their actual client streaming state. State resets at each trial.
+
+76 retained trials / 912 requests, with two seeds (23,77) and shuffled configuration and case order. Llama 1B at (3072 nominal KV slots, cap12) tests balanced and generation-heavy mixes under clustered and staggered arrivals, with all five policies (40 trials). Qwen 1.5B at (3072,cap6) tests generation-heavy mixes and both arrivals with all five policies (20 trials). Llama (12288,cap12), generation-heavy, both arrivals, baseline/adaptive/adaptive_resume supplies capacity-relief controls (12 trials). Llama (3072,cap3), generation-heavy, both arrivals, baseline supplies contemporaneous batching-gain controls (4 trials).
+
+Reuse the prior study's exact tokenizer-ID workload generation and streamed token-ID client measurements, including 50 ms burst spacing and minimum stagger spacing; 12 requests per trace; forced specified output lengths. Warmups and diagnostic runs are excluded. A complete configuration failing engine arrival-order verification is preserved under excluded_order_* and repeated unchanged; retain the first order-valid attempt, without performance-based selection.
+
+Trace all policies with identical instrumentation: scheduler lost/replayed positions, admission attempts, free blocks, exact full-input block requirement, requested/effective watermark, and whether an attempt was waived, rejected or admitted. Only waiting/preempted allocations receive additional decision tracing. Check native counters against replay traces and logical token usage.
+
+Measure throughput, TTFT and completion latency; gaps >.5/1/2/5 seconds after first delivery; worst client gap; per-request eviction/replay; eviction-to-first-replay scheduling wait; replay-start-to-next-client-delivery delay; repeated eviction and censoring. Admission refusal intervals classified as physical capacity, watermark, or other are sampled decision-state durations, not GPU kernel times. Gap coverage by eviction-to-replay waiting uses interval union to avoid double counting. Associate scheduler and client data with API response IDs.
+
+Compare fixed_resume vs fixed, adaptive_resume vs adaptive, and all policies vs baseline on paired workloads. Report all pressure cases, seeds, arrival modes, and failures. Batching-gain retention is measured only where contemporaneous cap3 generation controls exist and default high-cap gain is >5%. Constants and matrix are selected before diagnostic performance observations; no outcome-specific retuning.
+
+This is a targeted empirical ablation on one GPU, not a new scheduling algorithm or hard interruption guarantee. CacheOPT already distinguishes waiting and returned requests using TTFT/TBT deadlines. The scientific contribution being tested is implementation-level proxy mismatch and measured resume-delay mechanism.

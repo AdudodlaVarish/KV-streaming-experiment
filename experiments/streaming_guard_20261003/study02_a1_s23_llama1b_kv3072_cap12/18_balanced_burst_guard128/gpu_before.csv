@@ -1,0 +1,2 @@
+timestamp, temperature.gpu, power.draw [W], memory.used [MiB], utilization.gpu [%], clocks.current.sm [MHz]
+2026/10/03 13:29:16.515, 54, 49.58 W, 3797 MiB, 62 %, 2025 MHz

@@ -1,6 +1,3 @@
-"""Feedback headroom layered on the installed vLLM admission watermark.
-No use of actual/future output lengths. Parameters are locked before evaluation.
-"""
 import json, os, time
 from trace_scheduler import TraceScheduler
 

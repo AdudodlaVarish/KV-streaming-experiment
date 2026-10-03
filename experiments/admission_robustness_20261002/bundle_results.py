@@ -1,4 +1,3 @@
-"""Bundle the verified evaluation, excluding diagnostic and early evaluation folders."""
 import hashlib, json, pathlib, zipfile
 ROOT=pathlib.Path(__file__).resolve().parent
 checks=json.loads((ROOT/'checks.json').read_text())

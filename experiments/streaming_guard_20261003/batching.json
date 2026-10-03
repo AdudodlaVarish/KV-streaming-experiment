@@ -1,0 +1,202 @@
+[
+  {
+    "seed": 23,
+    "arrival": "stagger",
+    "policy": "guard128",
+    "default_gain_ratio": -0.02953197737514246,
+    "gain_retained": null,
+    "low_throughput": 182.28609207626815,
+    "default_throughput": 176.90282332926867,
+    "policy_throughput": 201.38101677156473
+  },
+  {
+    "seed": 23,
+    "arrival": "stagger",
+    "policy": "guard256",
+    "default_gain_ratio": -0.02953197737514246,
+    "gain_retained": null,
+    "low_throughput": 182.28609207626815,
+    "default_throughput": 176.90282332926867,
+    "policy_throughput": 190.3283828934973
+  },
+  {
+    "seed": 23,
+    "arrival": "stagger",
+    "policy": "growth_only",
+    "default_gain_ratio": -0.02953197737514246,
+    "gain_retained": null,
+    "low_throughput": 182.28609207626815,
+    "default_throughput": 176.90282332926867,
+    "policy_throughput": 202.22578501759864
+  },
+  {
+    "seed": 23,
+    "arrival": "stagger",
+    "policy": "adaptive_resume",
+    "default_gain_ratio": -0.02953197737514246,
+    "gain_retained": null,
+    "low_throughput": 182.28609207626815,
+    "default_throughput": 176.90282332926867,
+    "policy_throughput": 207.8997361781834
+  },
+  {
+    "seed": 23,
+    "arrival": "stagger",
+    "policy": "slai_port",
+    "default_gain_ratio": -0.02953197737514246,
+    "gain_retained": null,
+    "low_throughput": 182.28609207626815,
+    "default_throughput": 176.90282332926867,
+    "policy_throughput": 197.46740303918355
+  },
+  {
+    "seed": 23,
+    "arrival": "burst",
+    "policy": "guard256",
+    "default_gain_ratio": 0.3611264126912046,
+    "gain_retained": 0.4980006888152138,
+    "low_throughput": 175.55438528182324,
+    "default_throughput": 238.9517106708577,
+    "policy_throughput": 207.12629699460464
+  },
+  {
+    "seed": 23,
+    "arrival": "burst",
+    "policy": "growth_only",
+    "default_gain_ratio": 0.3611264126912046,
+    "gain_retained": 0.5893920161456956,
+    "low_throughput": 175.55438528182324,
+    "default_throughput": 238.9517106708577,
+    "policy_throughput": 212.92026271111095
+  },
+  {
+    "seed": 23,
+    "arrival": "burst",
+    "policy": "slai_port",
+    "default_gain_ratio": 0.3611264126912046,
+    "gain_retained": 1.9045150120930967,
+    "low_throughput": 175.55438528182324,
+    "default_throughput": 238.9517106708577,
+    "policy_throughput": 296.2955432117902
+  },
+  {
+    "seed": 23,
+    "arrival": "burst",
+    "policy": "guard128",
+    "default_gain_ratio": 0.3611264126912046,
+    "gain_retained": 0.33620322957572435,
+    "low_throughput": 175.55438528182324,
+    "default_throughput": 238.9517106708577,
+    "policy_throughput": 196.8687708240797
+  },
+  {
+    "seed": 23,
+    "arrival": "burst",
+    "policy": "adaptive_resume",
+    "default_gain_ratio": 0.3611264126912046,
+    "gain_retained": 0.34868365703115345,
+    "low_throughput": 175.55438528182324,
+    "default_throughput": 238.9517106708577,
+    "policy_throughput": 197.65999654446577
+  },
+  {
+    "seed": 77,
+    "arrival": "stagger",
+    "policy": "adaptive_resume",
+    "default_gain_ratio": 0.31541042909167505,
+    "gain_retained": 0.8016716777337067,
+    "low_throughput": 174.36508060872637,
+    "default_throughput": 229.36164550212925,
+    "policy_throughput": 218.45426905641133
+  },
+  {
+    "seed": 77,
+    "arrival": "stagger",
+    "policy": "guard256",
+    "default_gain_ratio": 0.31541042909167505,
+    "gain_retained": 0.5298379662089036,
+    "low_throughput": 174.36508060872637,
+    "default_throughput": 229.36164550212925,
+    "policy_throughput": 203.50434870032294
+  },
+  {
+    "seed": 77,
+    "arrival": "stagger",
+    "policy": "slai_port",
+    "default_gain_ratio": 0.31541042909167505,
+    "gain_retained": 0.6788948337406565,
+    "low_throughput": 174.36508060872637,
+    "default_throughput": 229.36164550212925,
+    "policy_throughput": 211.70196438834034
+  },
+  {
+    "seed": 77,
+    "arrival": "stagger",
+    "policy": "guard128",
+    "default_gain_ratio": 0.31541042909167505,
+    "gain_retained": 0.6038691775711869,
+    "low_throughput": 174.36508060872637,
+    "default_throughput": 229.36164550212925,
+    "policy_throughput": 207.57581102014598
+  },
+  {
+    "seed": 77,
+    "arrival": "stagger",
+    "policy": "growth_only",
+    "default_gain_ratio": 0.31541042909167505,
+    "gain_retained": 1.0335785379881333,
+    "low_throughput": 174.36508060872637,
+    "default_throughput": 229.36164550212925,
+    "policy_throughput": 231.20834974561922
+  },
+  {
+    "seed": 77,
+    "arrival": "burst",
+    "policy": "growth_only",
+    "default_gain_ratio": 0.42259261485109056,
+    "gain_retained": 0.930273827079577,
+    "low_throughput": 197.93939298356133,
+    "default_throughput": 281.58711864652213,
+    "policy_throughput": 275.7546828625464
+  },
+  {
+    "seed": 77,
+    "arrival": "burst",
+    "policy": "slai_port",
+    "default_gain_ratio": 0.42259261485109056,
+    "gain_retained": 0.7581567345611292,
+    "low_throughput": 197.93939298356133,
+    "default_throughput": 281.58711864652213,
+    "policy_throughput": 261.35747952565686
+  },
+  {
+    "seed": 77,
+    "arrival": "burst",
+    "policy": "adaptive_resume",
+    "default_gain_ratio": 0.42259261485109056,
+    "gain_retained": 0.9405743525180701,
+    "low_throughput": 197.93939298356133,
+    "default_throughput": 281.58711864652213,
+    "policy_throughput": 276.61629838860983
+  },
+  {
+    "seed": 77,
+    "arrival": "burst",
+    "policy": "guard128",
+    "default_gain_ratio": 0.42259261485109056,
+    "gain_retained": 0.35047741440725766,
+    "low_throughput": 197.93939298356133,
+    "default_throughput": 281.58711864652213,
+    "policy_throughput": 227.25603159496345
+  },
+  {
+    "seed": 77,
+    "arrival": "burst",
+    "policy": "guard256",
+    "default_gain_ratio": 0.42259261485109056,
+    "gain_retained": 0.416976055828565,
+    "low_throughput": 197.93939298356133,
+    "default_throughput": 281.58711864652213,
+    "policy_throughput": 232.81849170953257
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "jobs": [
+    [
+      23,
+      [
+        "llama1b",
+        3072,
+        12
+      ]
+    ]
+  ],
+  "expected_trials": 8,
+  "expected_requests": 96,
+  "policies": [
+    "baseline",
+    "adaptive_resume",
+    "slai_port",
+    "growth_only",
+    "guard128",
+    "guard256"
+  ],
+  "stress_policies": [
+    "baseline",
+    "slai_port",
+    "guard128",
+    "guard256",
+    "guard_fast",
+    "guard_relaxed"
+  ]
+}

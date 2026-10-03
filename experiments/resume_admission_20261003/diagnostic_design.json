@@ -1,0 +1,22 @@
+{
+  "jobs": [
+    [
+      23,
+      [
+        "llama1b",
+        3072,
+        12
+      ]
+    ]
+  ],
+  "policies": [
+    "baseline",
+    "fixed",
+    "adaptive",
+    "fixed_resume",
+    "adaptive_resume"
+  ],
+  "expected_trials": 5,
+  "expected_requests": 60,
+  "prior_client": "/home/varish/kv-cache-lab/experiments/admission_robustness_20261002/run.py"
+}

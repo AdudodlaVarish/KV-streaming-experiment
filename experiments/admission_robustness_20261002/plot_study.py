@@ -1,4 +1,3 @@
-"""Scientific figures for the completed, verified study; uses existing matplotlib."""
 import json, pathlib, statistics
 import matplotlib
 matplotlib.use('Agg')

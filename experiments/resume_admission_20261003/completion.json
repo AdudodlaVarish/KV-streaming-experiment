@@ -1,0 +1,18 @@
+{
+  "completed_utc": "2026-10-03T16:53:46.932407+00:00",
+  "all_checks_passed": true,
+  "retained_trials": 76,
+  "retained_requests": 912,
+  "accepted_server_configs": 8,
+  "excluded_order_runs": [],
+  "servers_stopped": true,
+  "policy_counts": {
+    "adaptive": 16,
+    "fixed_resume": 12,
+    "fixed": 12,
+    "baseline": 20,
+    "adaptive_resume": 16
+  },
+  "native_source_and_helpers_unchanged": true,
+  "gpu_final": "name, memory.used [MiB], utilization.gpu [%], power.draw [W]\nNVIDIA GeForce RTX 4060 Laptop GPU, 1110 MiB, 14 %, 3.78 W\n"
+}
